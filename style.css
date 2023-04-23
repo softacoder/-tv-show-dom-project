@@ -57,9 +57,8 @@
   flex-direction: row;
   justify-content: center;
   height: 50px;
-  
   background-color: var(--greenBlack);
-  color: var(--greenBlack);
+  color: var(--white);
 }
 
 input [type="email"] {
