@@ -8,13 +8,66 @@
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
 
 
-    <!-- <link href="//fonts.googleapis.com/css?family=Roboto:400,500,300" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"> -->
+    <link href="//fonts.googleapis.com/css?family=Roboto:400,500,300" rel="stylesheet" type="text/css" />
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"> -->
   </head>
 
   <body>
-    <div id="root">
-    </div>
+
+    <div id="root"></div>
+
+<section> 
+
+  <p id="p1">We Keep You Entertained</p>
+  <p id="p2">Sign Up And Bookmark Us</p>
+  <script>
+
+    const p1 = document.getElementById("p1");
+    const p2 = document.getElementById("p2");
+
+    let current = p1;
+
+    function switchParagraphs() {
+      current.style.display = "none";
+
+      if (current === p1) {
+        current = p2;
+      } else {
+        current = p1;
+      }
+
+      // Show the new <p> element
+      current.style.display = "block";
+    }
+
+    // Call the switchParagraphs() function every 5 seconds
+    setInterval(switchParagraphs, 5000);
+
+  </script>
+</section>
+
+    <header>
+      <div class="carousel">
+        <div class="carousel-container">
+          <img src="https://static.tvmaze.com/uploads/images/medium_portrait/423/1058922.jpg">
+          <img src="https://static.tvmaze.com/uploads/images/medium_portrait/450/1126198.jpg">
+          <img src="https://static.tvmaze.com/uploads/images/medium_portrait/425/1064746.jpg">
+          <img src="https://static.tvmaze.com/uploads/images/medium_portrait/408/1022465.jpg">
+          <img src="https://static.tvmaze.com/uploads/images/medium_portrait/458/1146396.jpg"> 
+        </div>
+        <button class="prev-btn">&#60;</button>
+        <button class="next-btn">&#62;</button>
+      </div>
+    </header>
+
+
+      
+
+    
+    
+
+    
+  
 
 <section class="contact" id="contact">
 
@@ -66,6 +119,16 @@
 </section>
 
 
+
+
+
+<!-- Loads a provided function called getAllEpisodes() which returns all episodes -->
+<script src="episodes.js"></script>
+
+<!-- Loads YOUR javascript code -->
+<script src="script.js"></script>
+
+
 </body>
 
 <footer class="footer">
@@ -88,12 +151,7 @@
   </section>
 
 
-    <!-- Loads a provided function called getAllEpisodes() which returns all episodes -->
-    <script src="episodes.js"></script>
-
-    <!-- Loads YOUR javascript code -->
-    <script src="script.js"></script>
-  </body>
+   
 
 
 
