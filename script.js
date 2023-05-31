@@ -187,7 +187,7 @@ const checkPaginationNeeded = (showList) => {
   containerForSeason.innerHTML = result;
 };
 
-// Below the function display all episodes pages by using the API.
+// Below the function display all episodes pages by using the API. Both these functions work. The one below is arrow functions.
 //   function createPageEpisodes(episodeList) {
 //   const result = episodeList.reduce((acc, {
 //     name, number, season, summary, image: { medium },
@@ -237,17 +237,39 @@ const createPageEpisodes = (episodeList) => {
 
 
 // Pagination functionality checks how many items should be included on page, either 9 or 5. 
-  function checkActiveEpisodeOrShowPage() {
-    if (episodePageIsActive) {
+//   function checkActiveEpisodeOrShowPage() {
+//     if (episodePageIsActive) {
+//     generatePage(null, 9, episodesList);
+//   } else {
+//     generatePage(arrayOfShows, 5, null);
+//   }
+// }
+
+const checkActiveEpisodeOrShowPage = () => {
+  if (episodePageIsActive) {
     generatePage(null, 9, episodesList);
   } else {
     generatePage(arrayOfShows, 5, null);
   }
-}
+};
 
-  function generatePage(shows, pageSize, episodes) {
+
+//   function generatePage(shows, pageSize, episodes) {
+//   const startIndex = (currentButtonIndex - 1) * pageSize;
+//   const endIndex = currentButtonIndex * pageSize;
+//   if (shows !== null) {
+//     const page = shows.slice(startIndex, endIndex);
+//     createPageShows(page);
+//   } else if (episodes !== null) {
+//     const page = episodes.slice(startIndex, endIndex);
+//     createPageEpisodes(page);
+//   }
+// }
+
+const generatePage = (shows, pageSize, episodes) => {
   const startIndex = (currentButtonIndex - 1) * pageSize;
   const endIndex = currentButtonIndex * pageSize;
+
   if (shows !== null) {
     const page = shows.slice(startIndex, endIndex);
     createPageShows(page);
@@ -255,7 +277,8 @@ const createPageEpisodes = (episodeList) => {
     const page = episodes.slice(startIndex, endIndex);
     createPageEpisodes(page);
   }
-}
+};
+
 
 
   const generateActivePaginationButton = () => {
