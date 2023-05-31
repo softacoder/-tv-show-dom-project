@@ -127,10 +127,10 @@ const checkPaginationNeeded = (showList) => {
 
 
 // Below the main function is defined to make pages for shows by fetching data about all available shows from the API.
-//   function createPageShows(showList) {
-//   const summaryLength = 350;
-//     const page = showList.slice(0, 5);
-//   let result = '';
+  function createPageShows(showList) {
+  const summaryLength = 350;
+    const page = showList.slice(0, 5);
+  let result = '';
 
 // const createPageShows = (showList) => {
 //   const summaryLength = 350;
