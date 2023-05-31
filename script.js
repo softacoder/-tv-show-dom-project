@@ -170,7 +170,7 @@ const checkPaginationNeeded = (showList) => {
   checkPaginationNeeded(showList);
 }
 
-// Below the function make pages for all seasons by using the API.
+// Below the function make pages for all seasons by using the API. Both these functions work. The one below is arrow functions.
     const createPageSeasons = (seasonArray) => {
     const result = seasonArray.reduce((acc, { number, image: { medium }, summary }) => {
     const isNull = summary === null ? '' : summary;
@@ -393,7 +393,7 @@ const createDropdownEpisodes = () => {
 };
 
 
-// The 4 functions below make and display pages for the shows, seasons, episodes
+// The 4 functions below make and display pages for the shows, seasons, episodes. Both these functions work. The one below is arrow functions.
 // function getSelectedShow(showName) {
 //    const chosenShow = arrayOfShows.filter(({ name }) => name === showName);
 //     createPageShows(chosenShow);
@@ -446,8 +446,7 @@ const getSelectedEpisode = (selectedEpisode) => {
 };
 
 
-//This function is used to normalize user input or clean up strings before further processing. 
-// It takes the value and returns trimmed and lower cased string/value.  
+//This function is used to normalize user input or clean up strings before further processing. It takes the value and returns trimmed and lower cased string/value. Both these functions work. The one below is arrow functions. 
 //   function grabSearchInput(searchInput) {
 //   return searchInput.value
 //     .trim()
@@ -484,7 +483,7 @@ const displayShow = () => {
   generatePage(sortedShows, 5, null);
 };
 
-// This function retrieve and display a list of TV show episodes based on a user's search input.
+// This function retrieve and display a list of TV show episodes based on a user's search input. Both these functions work. The one below is arrow functions.
 // function displayEpisode() {
 //   const finderValue = grabSearchInput(searchForEpisode);
 //   const sortedEpisodes = episodesList.filter(({ name, summary }) => name
@@ -522,7 +521,7 @@ const toggleSummary = (spanId, spanSummary) => {
 };
 
 
-// It describes a section of code that implements functionality for a carousel.
+// It describes a section of code that implements functionality for a carousel. Both these functions work. The one below is arrow functions.
 
 //   function playCarousel() {
 //   setInterval(() => {
@@ -572,7 +571,7 @@ const retrievePosterData = (poster) => {
 };
 
 
-// These two functions determine when to display or hide bars
+// These two functions determine when to display or hide bars. Both these functions work. The one below is arrow functions.
 //   function showShowsBar() {
 //   searchForEpisode.classList.add('hidden');
 //   dropdownForSeries.classList.add('hidden');
