@@ -524,46 +524,87 @@ const toggleSummary = (spanId, spanSummary) => {
 
 // It describes a section of code that implements functionality for a carousel.
 
-  function playCarousel() {
+//   function playCarousel() {
+//   setInterval(() => {
+//     indexOfSlide++;
+//         if (indexOfSlide >= containerForCarousel.children.length) {
+//       indexOfSlide = 0;
+//     }
+//      appendCarouselPoster();
+//     containerForCarousel.style.transform = `translateX(-${indexOfSlide * itemWidthRatio}px)`;
+//   }, 3000);
+// }
+
+const playCarousel = () => {
   setInterval(() => {
     indexOfSlide++;
-        if (indexOfSlide >= containerForCarousel.children.length) {
+    if (indexOfSlide >= containerForCarousel.children.length) {
       indexOfSlide = 0;
     }
-     appendCarouselPoster();
+    appendCarouselPoster();
     containerForCarousel.style.transform = `translateX(-${indexOfSlide * itemWidthRatio}px)`;
   }, 3000);
-}
+};
 
 
-  function appendCarouselPoster() {
+//   function appendCarouselPoster() {
+//   const poster = arrayOfShows[Math.floor(Math.random() * arrayOfShows.length)].image.medium;
+//   containerForCarousel.innerHTML += `<img src="${poster}">`;
+// }
+
+const appendCarouselPoster = () => {
   const poster = arrayOfShows[Math.floor(Math.random() * arrayOfShows.length)].image.medium;
   containerForCarousel.innerHTML += `<img src="${poster}">`;
-}
+};
+
+
+// playCarousel();
+//   function retrievePosterData(poster) {
+//   const chosenShow = arrayOfShows.filter(({ image: { medium } }) => medium.includes(poster));
+//   createPageShows(selectedShow);
+// }
 
 playCarousel();
-  function retrievePosterData(poster) {
+
+const retrievePosterData = (poster) => {
   const chosenShow = arrayOfShows.filter(({ image: { medium } }) => medium.includes(poster));
   createPageShows(selectedShow);
-}
+};
+
 
 // These two functions determine when to display or hide bars
-  function showShowsBar() {
+//   function showShowsBar() {
+//   searchForEpisode.classList.add('hidden');
+//   dropdownForSeries.classList.add('hidden');
+//   dropdownForShows.classList.remove('hidden');
+//   searchForShow.classList.remove('hidden');
+//   searchForResult.textContent = '';
+//   searchForEpisode.value = '';
+// }
+
+const showShowsBar = () => {
   searchForEpisode.classList.add('hidden');
   dropdownForSeries.classList.add('hidden');
   dropdownForShows.classList.remove('hidden');
   searchForShow.classList.remove('hidden');
   searchForResult.textContent = '';
   searchForEpisode.value = '';
-}
+};
 
+//   function showEpisodeBar() {
+//   dropdownForSeries.classList.remove('hidden');
+//   searchForEpisode.classList.remove('hidden');
+//   dropdownForShows.classList.add('hidden');
+//   searchForShow.classList.add('hidden');
+// }
 
-  function showEpisodeBar() {
+const showEpisodeBar = () => {
   dropdownForSeries.classList.remove('hidden');
   searchForEpisode.classList.remove('hidden');
   dropdownForShows.classList.add('hidden');
   searchForShow.classList.add('hidden');
-}
+};
+
 
 // These event listeners are used to add interactivity to my TV show web page, allowing users to search, filter, 
 // and navigate the content dynamically.
@@ -690,9 +731,5 @@ containerForCarousel.addEventListener('click', (event) => {
     retrievePosterData(event.target.getAttribute('src'));
   }
 });
-
-
-
-
 
 
