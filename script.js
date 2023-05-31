@@ -374,43 +374,79 @@ const navigateBackward = () => {
 
 
 // Below a dropdown for selected episodes is created
-  function createDropdownEpisodes() {
+//   function createDropdownEpisodes() {
+//   let result = '<option value="">Choose episode</option>';
+//     episodesList.map(({ name, number, season }) => {
+//     const episodeNum = grabNumber(number);
+//     const episodeSeason = grabNumber(season);
+//     result += `<option value="${name}">S${episodeSeason}E${episodeNum} - ${name}</option>`;
+//   });
+//     dropdownForSeries.innerHTML = result;
+// }
+
+const createDropdownEpisodes = () => {
   let result = '<option value="">Choose episode</option>';
-    episodesList.map(({ name, number, season }) => {
+  episodesList.map(({ name, number, season }) => {
     const episodeNum = grabNumber(number);
     const episodeSeason = grabNumber(season);
     result += `<option value="${name}">S${episodeSeason}E${episodeNum} - ${name}</option>`;
   });
-    dropdownForSeries.innerHTML = result;
-}
+  dropdownForSeries.innerHTML = result;
+};
+
 
 // The 4 functions below make and display pages for the shows, seasons, episodes
-function getSelectedShow(showName) {
-   const chosenShow = arrayOfShows.filter(({ name }) => name === showName);
-    createPageShows(chosenShow);
-}
+// function getSelectedShow(showName) {
+//    const chosenShow = arrayOfShows.filter(({ name }) => name === showName);
+//     createPageShows(chosenShow);
+// }
+
+const getSelectedShow = (showName) => {
+  const chosenShow = arrayOfShows.filter(({ name }) => name === showName);
+  createPageShows(chosenShow);
+};
 
 
-function findSeasonsOfChosenShow(chosenShow) {
+// function findSeasonsOfChosenShow(chosenShow) {
+//   const clickedShow = arrayOfShows.find(({ name }) => name === chosenShow);
+//   const { _links } = clickedShow;
+//   const link = _links.self.href;
+//   showEpisodesAPIURL = `${link}/episodes`;
+//    showSeasonsAPIURL = `${link}/seasons`;
+//   fetchSeason(showSeasonsAPIURL);
+//    searchForShow.value = '';
+// }
+
+const findSeasonsOfChosenShow = (chosenShow) => {
   const clickedShow = arrayOfShows.find(({ name }) => name === chosenShow);
   const { _links } = clickedShow;
   const link = _links.self.href;
   showEpisodesAPIURL = `${link}/episodes`;
-   showSeasonsAPIURL = `${link}/seasons`;
+  showSeasonsAPIURL = `${link}/seasons`;
   fetchSeason(showSeasonsAPIURL);
-   searchForShow.value = '';
-}
+  searchForShow.value = '';
+};
+
+
     const findEpisodesOfChosenSeason = (chosenSeason) => {
   const numberOfSeason = Number(chosenSeason);
   const numberOfEpisodes = episodesList.filter(({ season }) => season === numberOfSeason);
   createPageEpisodes(numberOfEpisodes);
 };
 
-function getSelectedEpisode(selectedEpisode) {
+
+// function getSelectedEpisode(selectedEpisode) {
+//   const foundEpisode = episodesList.filter(({ name }) => name.includes(selectedEpisode));
+//     buttonForPage.classList.add('hidden');
+//   createPageEpisodes(foundEpisode);
+// }
+
+const getSelectedEpisode = (selectedEpisode) => {
   const foundEpisode = episodesList.filter(({ name }) => name.includes(selectedEpisode));
-    buttonForPage.classList.add('hidden');
+  buttonForPage.classList.add('hidden');
   createPageEpisodes(foundEpisode);
-}
+};
+
 
 //This function is used to normalize user input or clean up strings before further processing. 
 // It takes the value and returns trimmed and lower cased string/value.  
