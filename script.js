@@ -109,19 +109,37 @@ const grabNumber = (number) => number < 10 ? `0${number}` : number;
 
 
 // Check whether to display pagination based on the amount of data available. If .. else statement determine what option.
-  function checkPaginationNeeded(showList) {
+//   function checkPaginationNeeded(showList) {
+//   if (showList.length < 5) {
+//     buttonForPage.classList.add('hidden');
+//   } else {
+//         buttonForPage.classList.remove('hidden');
+//   }
+// }
+
+const checkPaginationNeeded = (showList) => {
   if (showList.length < 5) {
     buttonForPage.classList.add('hidden');
   } else {
-        buttonForPage.classList.remove('hidden');
+    buttonForPage.classList.remove('hidden');
   }
-}
+};
+
 
 // Below the main function is defined to make pages for shows by fetching data about all available shows from the API.
-  function createPageShows(showList) {
+//   function createPageShows(showList) {
+//   const summaryLength = 350;
+//     const page = showList.slice(0, 5);
+//   let result = '';
+
+const createPageShows = (showList) => {
   const summaryLength = 350;
-    const page = showList.slice(0, 5);
+  const page = showList.slice(0, 5);
   let result = '';
+
+  return result;
+};
+
 
 
     page.map((show) => {
