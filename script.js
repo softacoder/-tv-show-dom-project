@@ -101,9 +101,12 @@ const createDropdownShows = (indexOfShows) => {
 
 
 // Below season and episode numbers is tranformed to a standard format
-  function grabNumber(number) {
-  return number < 10 ? `0${number}` : number;
-}
+//   function grabNumber(number) {
+//   return number < 10 ? `0${number}` : number;
+// }
+
+const grabNumber = (number) => number < 10 ? `0${number}` : number;
+
 
 // Check whether to display pagination based on the amount of data available. If .. else statement determine what option.
   function checkPaginationNeeded(showList) {
