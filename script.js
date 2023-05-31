@@ -236,7 +236,7 @@ const createPageEpisodes = (episodeList) => {
 };
 
 
-// Pagination functionality checks how many items should be included on page, either 9 or 5. 
+// Pagination functionality checks how many items should be included on page, either 9 or 5. Both these functions work. The one below is arrow functions.
 //   function checkActiveEpisodeOrShowPage() {
 //     if (episodePageIsActive) {
 //     generatePage(null, 9, episodesList);
@@ -293,41 +293,85 @@ const generatePage = (shows, pageSize, episodes) => {
 };
 
 
-  function addPageButton() {
-    const numOfPages = containerForPages.children.length;
-    currentButtonIndex++;
-    checkActiveEpisodeOrShowPage();
-        if (currentButtonIndex > numOfPages) {
+
+
+//   function addPageButton() {
+//     const numOfPages = containerForPages.children.length;
+//     currentButtonIndex++;
+//     checkActiveEpisodeOrShowPage();
+//         if (currentButtonIndex > numOfPages) {
+//     if (numOfPages >= 5) {
+//         const firstPageNum = currentButtonIndex - 5;
+//         const firstPage = containerForPages.querySelector(`.page-item:nth-child(${firstPageNum})`);
+//       for (let i = 1; i < firstPageNum; i++) {
+//           const page = containerForPages.querySelector(`.page-item:nth-child(${i})`);
+//         page.style.display = 'none';
+//       }
+//       firstPage.style.display = 'none';
+//     }
+//       containerForPages.innerHTML += `<li class="page-item"><a class="page-link">${currentButtonIndex}</a></li>`;
+//   }
+//     generateActivePaginationButton();
+// }
+
+const addPageButton = () => {
+  const numOfPages = containerForPages.children.length;
+  currentButtonIndex++;
+  checkActiveEpisodeOrShowPage();
+
+  if (currentButtonIndex > numOfPages) {
     if (numOfPages >= 5) {
-        const firstPageNum = currentButtonIndex - 5;
-        const firstPage = containerForPages.querySelector(`.page-item:nth-child(${firstPageNum})`);
+      const firstPageNum = currentButtonIndex - 5;
+      const firstPage = containerForPages.querySelector(`.page-item:nth-child(${firstPageNum})`);
+
       for (let i = 1; i < firstPageNum; i++) {
-          const page = containerForPages.querySelector(`.page-item:nth-child(${i})`);
+        const page = containerForPages.querySelector(`.page-item:nth-child(${i})`);
         page.style.display = 'none';
       }
       firstPage.style.display = 'none';
     }
-      containerForPages.innerHTML += `<li class="page-item"><a class="page-link">${currentButtonIndex}</a></li>`;
+
+    containerForPages.innerHTML += `<li class="page-item"><a class="page-link">${currentButtonIndex}</a></li>`;
   }
-    generateActivePaginationButton();
-}
+
+  generateActivePaginationButton();
+};
 
 
-  function navigateBackward() {
+//   function navigateBackward() {
+//   const getNumberOfPages = containerForPages.children.length;
+//     if (currentButtonIndex > 1) {
+//     currentButtonIndex--;
+//     checkActiveEpisodeOrShowPage();
+//     generateActivePaginationButton();
+// if (getNumberOfPages >= 6) {
+//       const firstPageNum = getNumberOfPages - 5;
+//             const firstPage = containerForPages.querySelector(`.page-item:nth-child(${firstPageNum})`);
+//             const lastPage = containerForPages.querySelector(`.page-item:nth-child(${numOfPages})`);
+//       lastPage.remove();
+//       firstPage.style.display = '';
+//     }
+//   }
+// }
+
+const navigateBackward = () => {
   const getNumberOfPages = containerForPages.children.length;
-    if (currentButtonIndex > 1) {
+
+  if (currentButtonIndex > 1) {
     currentButtonIndex--;
     checkActiveEpisodeOrShowPage();
     generateActivePaginationButton();
-if (getNumberOfPages >= 6) {
+
+    if (getNumberOfPages >= 6) {
       const firstPageNum = getNumberOfPages - 5;
-            const firstPage = containerForPages.querySelector(`.page-item:nth-child(${firstPageNum})`);
-            const lastPage = containerForPages.querySelector(`.page-item:nth-child(${numOfPages})`);
+      const firstPage = containerForPages.querySelector(`.page-item:nth-child(${firstPageNum})`);
+      const lastPage = containerForPages.querySelector(`.page-item:nth-child(${numOfPages})`);
       lastPage.remove();
       firstPage.style.display = '';
     }
   }
-}
+};
+
 
 // Below a dropdown for selected episodes is created
   function createDropdownEpisodes() {
