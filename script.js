@@ -87,11 +87,17 @@ async function fetchEpisodes() {
 
 // Below is a dropdown for the shows and .forEach() method is used to 
 // iterate over the shows and create HTML <option> elements for each one.
-   function createDropdownShows(indexOfShows) {
-      indexOfShows.map((show) => {
+//    function createDropdownShows(indexOfShows) {
+//       indexOfShows.map((show) => {
+//     dropdownForShows.innerHTML += `<option value="${show.name}">${show.name}</option>`;
+//   });
+// }  
+
+const createDropdownShows = (indexOfShows) => {
+  indexOfShows.map((show) => {
     dropdownForShows.innerHTML += `<option value="${show.name}">${show.name}</option>`;
   });
-}  
+};
 
 
 // Below season and episode numbers is tranformed to a standard format
