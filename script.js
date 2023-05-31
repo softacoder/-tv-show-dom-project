@@ -86,7 +86,7 @@ async function fetchEpisodes() {
 
 
 // Below is a dropdown for the shows and .forEach() method is used to 
-// iterate over the shows and create HTML <option> elements for each one.
+// iterate over the shows and create HTML <option> elements for each one. Both these functions work. The one below is arrow functions.
 //    function createDropdownShows(indexOfShows) {
 //       indexOfShows.map((show) => {
 //     dropdownForShows.innerHTML += `<option value="${show.name}">${show.name}</option>`;
@@ -100,7 +100,7 @@ const createDropdownShows = (indexOfShows) => {
 };
 
 
-// Below season and episode numbers is tranformed to a standard format
+// Below season and episode numbers is tranformed to a standard format. Both these functions work. The one below is arrow functions.
 //   function grabNumber(number) {
 //   return number < 10 ? `0${number}` : number;
 // }
@@ -108,7 +108,7 @@ const createDropdownShows = (indexOfShows) => {
 const grabNumber = (number) => number < 10 ? `0${number}` : number;
 
 
-// Check whether to display pagination based on the amount of data available. If .. else statement determine what option.
+// Check whether to display pagination based on the amount of data available. If .. else statement determine what option. Both these functions work. The one below is arrow functions.
 //   function checkPaginationNeeded(showList) {
 //   if (showList.length < 5) {
 //     buttonForPage.classList.add('hidden');
@@ -131,15 +131,6 @@ const checkPaginationNeeded = (showList) => {
   const summaryLength = 350;
     const page = showList.slice(0, 5);
   let result = '';
-
-// const createPageShows = (showList) => {
-//   const summaryLength = 350;
-//   const page = showList.slice(0, 5);
-//   let result = '';
-
-//   return result;
-// };
-
 
 
     page.map((show) => {
@@ -197,30 +188,53 @@ const checkPaginationNeeded = (showList) => {
 };
 
 // Below the function display all episodes pages by using the API.
-  function createPageEpisodes(episodeList) {
-  const result = episodeList.reduce((acc, {
-    name, number, season, summary, image: { medium },
-  }) => {
+//   function createPageEpisodes(episodeList) {
+//   const result = episodeList.reduce((acc, {
+//     name, number, season, summary, image: { medium },
+//   }) => {
+//     const episodeNum = grabNumber(number);
+//         const episodeSeason = grabNumber(season);
+//     const episode = `
+//       <div class="episode__wrap">
+//           <div class="episode__header">
+//             <h3>${name} - S${episodeSeason}E${episodeNum}</h3>
+            
+//           </div>
+//           <div class="episode__info">
+//             <img src="${medium}" alt="">
+//             ${summary}
+//           </div>
+//       </div>`;
+//     return acc + episode;
+//   }, '');
+//   searchForResult.textContent = `Displaying ${episodeList.length}/${episodesList.length} episodes`;
+//   containerForShow.classList.add('hidden');  
+    
+// containerForEpisode.innerHTML = result;
+// }
+
+const createPageEpisodes = (episodeList) => {
+  const result = episodeList.reduce((acc, { name, number, season, summary, image: { medium } }) => {
     const episodeNum = grabNumber(number);
-        const episodeSeason = grabNumber(season);
+    const episodeSeason = grabNumber(season);
     const episode = `
       <div class="episode__wrap">
-          <div class="episode__header">
-            <h3>${name} - S${episodeSeason}E${episodeNum}</h3>
-            
-          </div>
-          <div class="episode__info">
-            <img src="${medium}" alt="">
-            ${summary}
-          </div>
+        <div class="episode__header">
+          <h3>${name} - S${episodeSeason}E${episodeNum}</h3>
+        </div>
+        <div class="episode__info">
+          <img src="${medium}" alt="">
+          ${summary}
+        </div>
       </div>`;
     return acc + episode;
   }, '');
+
   searchForResult.textContent = `Displaying ${episodeList.length}/${episodesList.length} episodes`;
-  containerForShow.classList.add('hidden');  
-    
-containerForEpisode.innerHTML = result;
-}
+  containerForShow.classList.add('hidden');
+  containerForEpisode.innerHTML = result;
+};
+
 
 // Pagination functionality checks how many items should be included on page, either 9 or 5. 
   function checkActiveEpisodeOrShowPage() {
