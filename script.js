@@ -293,8 +293,6 @@ const generatePage = (shows, pageSize, episodes) => {
 };
 
 
-
-
 //   function addPageButton() {
 //     const numOfPages = containerForPages.children.length;
 //     currentButtonIndex++;
@@ -450,15 +448,32 @@ const getSelectedEpisode = (selectedEpisode) => {
 
 //This function is used to normalize user input or clean up strings before further processing. 
 // It takes the value and returns trimmed and lower cased string/value.  
-  function grabSearchInput(searchInput) {
-  return searchInput.value
-    .trim()
-    .toLocaleLowerCase()
-    .replace(/[^a-zA-Z0-9]/g, ' ');
-}
+//   function grabSearchInput(searchInput) {
+//   return searchInput.value
+//     .trim()
+//     .toLocaleLowerCase()
+//     .replace(/[^a-zA-Z0-9]/g, ' ');
+// }
+
+const grabSearchInput = (searchInput) => searchInput.value
+  .trim()
+  .toLocaleLowerCase()
+  .replace(/[^a-zA-Z0-9]/g, ' ');
+
 
 // The function retrieves user input, filters an array of TV shows based on that input, and then renders the filtered results to the page.
-function displayShow() {
+// function displayShow() {
+//   const grabShowValue = grabSearchInput(searchForShow);
+//   const sortedShows = arrayOfShows.filter(({ name, summary }) => name
+//     .toLocaleLowerCase()
+//     .includes(grabShowValue)
+//     || summary
+//       .toLocaleLowerCase()
+//       .includes(grabShowValue));
+//    generatePage(sortedShows, 5, null);
+// }
+
+const displayShow = () => {
   const grabShowValue = grabSearchInput(searchForShow);
   const sortedShows = arrayOfShows.filter(({ name, summary }) => name
     .toLocaleLowerCase()
@@ -466,11 +481,22 @@ function displayShow() {
     || summary
       .toLocaleLowerCase()
       .includes(grabShowValue));
-   generatePage(sortedShows, 5, null);
-}
+  generatePage(sortedShows, 5, null);
+};
 
 // This function retrieve and display a list of TV show episodes based on a user's search input.
-function displayEpisode() {
+// function displayEpisode() {
+//   const finderValue = grabSearchInput(searchForEpisode);
+//   const sortedEpisodes = episodesList.filter(({ name, summary }) => name
+//     .toLocaleLowerCase()
+//     .includes(finderValue)
+//     || summary
+//       .toLocaleLowerCase()
+//       .includes(finderValue));
+//   generatePage(null, 9, sortedEpisodes);
+// }
+
+const displayEpisode = () => {
   const finderValue = grabSearchInput(searchForEpisode);
   const sortedEpisodes = episodesList.filter(({ name, summary }) => name
     .toLocaleLowerCase()
@@ -479,14 +505,22 @@ function displayEpisode() {
       .toLocaleLowerCase()
       .includes(finderValue));
   generatePage(null, 9, sortedEpisodes);
-}
+};
+
 
 // Expand clicked summary
-  function toggleSummary(spanId, spanSummary) {
+//   function toggleSummary(spanId, spanSummary) {
+//   const summary = spanSummary;
+//   const querySummary = arrayOfShows.find(({ id }) => id === spanId);
+//   summary.innerHTML = querySummary.summary;
+// }
+
+const toggleSummary = (spanId, spanSummary) => {
   const summary = spanSummary;
   const querySummary = arrayOfShows.find(({ id }) => id === spanId);
   summary.innerHTML = querySummary.summary;
-}
+};
+
 
 // It describes a section of code that implements functionality for a carousel.
 
