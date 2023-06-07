@@ -3,19 +3,161 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TV Show Project | My Name (My GitHub username)</title>
+    <title>TV Show Project | Jan Softa (@softacoder)</title>
     <link href="style.css" rel="stylesheet" />
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-  </head>
+    <link href="//fonts.googleapis.com/css?family=Roboto:400,500,300" rel="stylesheet" type="text/css" />
+      
+ </head>
 
-  <body>
-    <div id="root">
+<body>
+   
+<section> 
+
+  <p id="p1">We Keep You Entertained</p>
+  <p id="p2">Join Us And Bookmark Us</p>
+  <script>
+
+    const p1 = document.getElementById("p1");
+    const p2 = document.getElementById("p2");
+
+    let current = p1;
+
+    function switchParagraphs() {
+      current.style.display = "none";
+
+      if (current === p1) {
+        current = p2;
+      } else {
+        current = p1;
+      }
+
+      // Show the new <p> element
+      current.style.display = "block";
+    }
+
+    // Call the switchParagraphs() function every 5 seconds
+    setInterval(switchParagraphs, 5000);
+
+  </script>
+</section>
+
+    <header>
+      <div class="carousel">
+   
+          <div class="container__carousel">
+          
+          <img src="https://static.tvmaze.com/uploads/images/medium_portrait/423/1058922.jpg">
+          <img src="https://static.tvmaze.com/uploads/images/medium_portrait/450/1126198.jpg">
+          <img src="https://static.tvmaze.com/uploads/images/medium_portrait/425/1064746.jpg">
+          <img src="https://static.tvmaze.com/uploads/images/medium_portrait/408/1022465.jpg">
+          <img src="https://static.tvmaze.com/uploads/images/medium_portrait/458/1146396.jpg"> 
+        </div>
+        <button class="prev-btn">&#60;</button>
+        <button class="next-btn">&#62;</button>
+      </div>
+    </header>
+<body>
+  
+    <section>
+    
+      <div class="input__wrap">
+        <select name="show" id="shows">
+          <option value="">Choose show</option>
+        </select>
+    
+        <select class="hidden" id="series" name="episode" >
+        </select>
+        <input id="searchForShow" type="text" placeholder="Search for show" >
+            <input class="hidden" id="searchForEpisode" type="text" placeholder="Search for episode" >
+            <p id="output"></p>
+            <button class="btn btn-danger" id="displayShow" type="button">TV Shows</button>
+          </div>
+    
+          </section>
+
+      
+    <div class="container__ForShow" id="containerForShow" ></div>
+        <div class="container" id="containerForSeason" ></div>
+    
+    <div class="container" id="episode">
+    <nav aria-label="Page navigation example" class="navbar">
+      <ul class="pagination">
+        <li class="page-item"><a class="page-link">Previous</a></li>
+        <div class="pagination__pages">
+          <li class="page-item"><a class="page-link active">1</a></li>
+          <li class="page-item"><a class="page-link">2</a></li>
+          <li class="page-item"><a class="page-link">3</a></li>
+        </div>
+        <li class="page-item"><a class="page-link">Next</a></li>
+      </ul>
+    </nav>
+</div>
+    
+<section class="contact" id="contact">
+
+  <section class="contactX">
+
+    <div class="address">
+      <h2>ADDRESS</h2>
+
+      <p>Address: 1 Old Street Yard, London EC1Y 2AS</p>
+      <p>Phone: 123-456-7890</p>
+      <p>Email: info@mysite.com</p>
     </div>
 
-    <!-- Loads a provided function called getAllEpisodes() which returns all episodes -->
-    <script src="episodes.js"></script>
+    <div class="open">
+      <h2>OPENING HOURS</h2>
+      <p>Mon - Fri: 7am - 10pm</p>
+      <p>Saturday: 8am - 10pm</p>
+      <p>Sunday: 8am - 11pm</p>
+    </div>
 
-    <!-- Loads YOUR javascript code -->
-    <script src="script.js"></script>
-  </body>
+  </section>
+
+  <section class="google-maps" id="google-maps">
+<iframe
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.339393827656!2d-0.0914576227641888!3d51.525334571817446!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761d530244d9fb%3A0xeb03441f9d5eb2c7!2sWhite%20Collar%20Factory!5e0!3m2!1sen!2suk!4v1682272386176!5m2!1sen!2suk"
+  width="90%" height="400" style="border:0;" allowfullscreen="" loading="lazy"
+  referrerpolicy="no-referrer-when-downgrade"></iframe>
+   
+      </section>
+  
+</section>
+
+
+</body>
+
+<footer class="footer">
+
+<section class="codeinfo">
+
+    <section class="coder">Coder</section>
+
+    <section class="githublink">
+      <span>© by </span>
+      <a href="https://github.com/softacoder" class="github">Jan Softa</a>
+    </section>
+    <section class="cyflink">
+      <a href="https://codeyourfuture.io/"><img class="footer__img" src="/cyf_brand.png" alt="CYF"></a>
+    </section>
+
+    <section class="tvmazelink">
+      <a href="https://www.tvmaze.com/api" class="tvmaze">TV Maze API</a>
+    </section>
+    
+</section>
+
+
+  </footer>
+
+<section class="ChatOption" id="chatOption">
+    <img src="/images/images/image (2).svg" alt="Lets chat" />
+  </section>
+
+
+  <script src="script.js"></script>
+  <script src="https://kit.fontawesome.com/8f5cda468f.js" crossorigin="anonymous""></script>
+
+  
 </html>
